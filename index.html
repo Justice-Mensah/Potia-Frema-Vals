@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://justice-mensah.github.io/Potia-valentine/" />
+  <meta property="og:title" content="Happy Valentine's Day, Potia! 💕" />
+  <meta property="og:description"
+    content="To my amazing Potia Fremah Sarpong — these two months have been incredible." />
+  <meta property="og:image" content="https://justice-mensah.github.io/Potia-valentine/preview-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://justice-mensah.github.io/Potia-valentine/" />
+  <meta property="twitter:title" content="Happy Valentine's Day, Potia! 💕" />
+  <meta property="twitter:description"
+    content="To my amazing Potia Fremah Sarpong — these two months have been incredible." />
+  <meta property="twitter:image" content="https://justice-mensah.github.io/Potia-valentine/preview-image.jpg" />
+
+  <title>Happy Valentine's Day, Potia! 💕</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --crimson: #C41E3A;
+      --rose: #E63946;
+      --blush: #F4978E;
+      --cream: #FFF5F5;
+      --gold: #D4AF37;
+      --wine: #5C0029;
+      --charcoal: #1a0a0f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background: var(--charcoal);
+      color: var(--cream);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── Custom Cursor ── */
+    .cursor {
+      width: 10px;
+      height: 10px;
+      background: var(--rose);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease;
+      mix-blend-mode: screen;
+    }
+
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--rose);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left 0.2s ease, top 0.2s ease, width 0.2s ease, height 0.2s ease;
+      opacity: 0.5;
+    }
+
+    /* ── Floating Hearts Background ── */
+    #hearts-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    /* ══════════════════════════════════════
+           H E R O   S E C T I O N
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a0a0f 0%, #3d0f20 50%, #1a0a0f 100%);
+      padding: 2rem;
+      z-index: 1;
+    }
+
+    /* Glowing orbs */
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+
+    .glow-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(196, 30, 58, 0.25) 0%, transparent 70%);
+      top: -150px;
+      left: -100px;
+      animation: drift 10s ease-in-out infinite alternate;
+    }
+
+    .glow-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(230, 57, 70, 0.2) 0%, transparent 70%);
+      bottom: -100px;
+      right: -100px;
+      animation: drift 12s ease-in-out infinite alternate-reverse;
+    }
+
+    .glow-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(40px, 30px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
+    /* Rose petals decoration */
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--rose);
+      border-radius: 50% 0 50% 0;
+      opacity: 0.15;
+      animation: petalFall var(--dur, 8s) linear infinite;
+      animation-delay: var(--del, 0s);
+      transform-origin: center;
+    }
+
+    @keyframes petalFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.15;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeInUp 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.9;
+      background: linear-gradient(135deg, var(--rose) 0%, var(--blush) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 60px rgba(196, 30, 58, 0.4);
+      opacity: 0;
+      animation: fadeInUp 1.2s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards, shimmer 4s 2s ease-in-out infinite;
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        filter: brightness(1);
+      }
+
+      50% {
+        filter: brightness(1.3);
+      }
+    }
+
+    /* Heart icon centerpiece */
+    .hero-heart-icon {
+      font-size: clamp(3rem, 8vw, 6rem);
+      display: inline-block;
+      margin: 1.5rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards, heartbeat 1.5s 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(230, 57, 70, 0.6));
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      10%,
+      30% {
+        transform: scale(1.15);
+      }
+
+      20% {
+        transform: scale(1.05);
+      }
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      color: rgba(255, 245, 245, 0.75);
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeInUp 1s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: transparent;
+      border: 2px solid var(--rose);
+      padding: 0.9rem 2.5rem;
+      border-radius: 0;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 1s 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--rose);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+
+    .hero-cta:hover {
+      color: var(--cream);
+      border-color: var(--rose);
+    }
+
+    .hero-cta:hover::before {
+      transform: scaleX(1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255, 245, 245, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s 2.5s forwards;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--rose), transparent);
+      animation: scrollAnim 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollAnim {
+
+      0%,
+      100% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scaleY(0.4);
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ══════════════════════════════════════
+           L O V E   L E T T E R
+    ══════════════════════════════════════ */
+    .letter-section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2rem;
+      background: var(--charcoal);
+    }
+
+    .letter-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(61, 15, 32, 0.4) 0%, rgba(26, 10, 15, 0.6) 100%);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(196, 30, 58, 0.2);
+      padding: clamp(3rem, 8vw, 5rem);
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    /* Wax seal decoration */
+    .wax-seal {
+      position: absolute;
+      top: -30px;
+      right: 3rem;
+      width: 60px;
+      height: 60px;
+      background: var(--crimson);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 15px rgba(196, 30, 58, 0.6);
+      border: 3px solid var(--wine);
+    }
+
+    .letter-date {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .letter-greeting {
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--rose);
+      margin-bottom: 2rem;
+    }
+
+    .letter-body {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 2;
+      color: rgba(255, 245, 245, 0.85);
+      margin-bottom: 2rem;
+    }
+
+    .letter-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    .letter-body strong {
+      color: var(--rose);
+      font-weight: 600;
+    }
+
+    .letter-body em {
+      color: var(--blush);
+      font-style: italic;
+    }
+
+    .letter-signature {
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--gold);
+      text-align: right;
+      margin-top: 2rem;
+    }
+
+    /* ══════════════════════════════════════
+           R E A S O N S   W H Y
+    ══════════════════════════════════════ */
+    .reasons-section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, var(--wine) 0%, var(--charcoal) 100%);
+    }
+
+    .reasons-header {
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .reasons-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .reasons-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .reasons-title span {
+      color: var(--rose);
+    }
+
+    .reasons-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .reason-card {
+      background: rgba(255, 245, 245, 0.03);
+      border: 1px solid rgba(196, 30, 58, 0.2);
+      padding: 2rem 1.75rem;
+      border-radius: 4px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      backdrop-filter: blur(5px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reason-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--rose);
+      box-shadow: 0 15px 40px rgba(196, 30, 58, 0.3);
+    }
+
+    .reason-card:hover::before {
+      opacity: 1;
+    }
+
+    .reason-number {
+      font-family: 'Amatic SC', cursive;
+      font-size: 3rem;
+      color: var(--rose);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      opacity: 0.5;
+    }
+
+    .reason-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255, 245, 245, 0.85);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════
+           M E M O R Y   T I M E L I N E
+    ══════════════════════════════════════ */
+    .timeline-section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 2rem;
+      background: var(--charcoal);
+    }
+
+    .timeline-header {
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .timeline-header .reasons-label {
+      color: var(--blush);
+    }
+
+    .timeline-header .reasons-title span {
+      color: var(--gold);
+    }
+
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Center line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--rose) 0%, var(--gold) 100%);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(odd) {
+      flex-direction: row;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+      text-align: left;
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding: 0 2rem;
+    }
+
+    .timeline-date {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.8rem;
+      color: var(--rose);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(255, 245, 245, 0.7);
+    }
+
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--rose);
+      border: 3px solid var(--charcoal);
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.3);
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════
+           F O O T E R
+    ══════════════════════════════════════ */
+    .footer {
+      position: relative;
+      z-index: 1;
+      background: var(--wine);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-heart {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .footer-message {
+      font-family: 'Amatic SC', cursive;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--rose);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255, 245, 245, 0.25);
+    }
+
+    /* ══════════════════════════════════════
+           C L I C K   H E A R T S
+    ══════════════════════════════════════ */
+    .click-heart {
+      position: fixed;
+      font-size: 1.5rem;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUpHeart var(--dur) ease-out forwards;
+    }
+
+    @keyframes floatUpHeart {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(var(--rot, 20deg)) scale(0.3);
+      }
+    }
+
+    /* ══════════════════════════════════════
+           S C R O L L   R E V E A L
+    ══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════════════════════
+           R E S P O N S I V E
+    ══════════════════════════════════════ */
+    @media (max-width: 650px) {
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .timeline-content {
+        padding-left: 2.5rem;
+        padding-right: 0;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <canvas id="hearts-canvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════════════════════
+         H E R O
+═══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+    <div class="hero-glow glow-3"></div>
+
+    <!-- Falling petals -->
+    <div class="petal" style="left:10%;--dur:12s;--del:0s"></div>
+    <div class="petal" style="left:25%;--dur:15s;--del:2s"></div>
+    <div class="petal" style="left:45%;--dur:11s;--del:4s"></div>
+    <div class="petal" style="left:65%;--dur:13s;--del:1s"></div>
+    <div class="petal" style="left:80%;--dur:14s;--del:3s"></div>
+    <div class="petal" style="left:90%;--dur:16s;--del:5s"></div>
+
+    <div class="hero-content">
+      <p class="hero-subtitle">To Potia Fremah Sarpong</p>
+      <h1 class="hero-title">Happy Valentine's Day</h1>
+      <div class="hero-heart-icon">❤️</div>
+      <p class="hero-tagline">
+        Every moment with you is a gift,<br />
+        and today I celebrate the greatest gift of all — <em>you</em>.
+      </p>
+      <a href="#letter" class="hero-cta">Read My Heart</a>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+         L O V E   L E T T E R
+═══════════════════════════════════════════════════════════ -->
+  <section class="letter-section" id="letter">
+    <div class="letter-container reveal">
+      <div class="wax-seal">💕</div>
+
+      <p class="letter-date">Valentine's Day · February 14, 2026</p>
+
+      <h2 class="letter-greeting">My Dearest Potia,</h2>
+
+      <div class="letter-body">
+        <p>
+          Two months ago, I met someone who changed everything. That someone is you.
+        </p>
+
+        <p>
+          I know we're still at the beginning of our story, but already I can feel how <strong>special</strong> this is.
+          The way you smile, the way you laugh, the way you make me feel like I'm exactly where I'm meant to be —
+          it's all so effortless and real.
+        </p>
+
+        <p>
+          These past two months have been <em>incredible</em>. Every conversation, every moment we share,
+          I find myself falling a little more. You make me excited about what's ahead,
+          and grateful for every second we've had so far.
+        </p>
+
+        <p>
+          I love how easy it is to be around you. How you make me laugh. How you listen.
+          How you're <strong>genuine</strong> in a way that feels rare and beautiful.
+        </p>
+
+        <p>
+          I can't wait to see where this goes. Thank you for being you.<br />
+          <em>Happy Valentine's Day, Potia.</em>
+        </p>
+      </div>
+
+      <div class="letter-signature">Yours 💕</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+         R E A S O N S   I   L O V E   Y O U
+═══════════════════════════════════════════════════════════ -->
+  <section class="reasons-section">
+    <div class="reasons-header reveal">
+      <p class="reasons-label">What I'm Already Loving</p>
+      <h2 class="reasons-title">About <span>You</span></h2>
+    </div>
+
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <div class="reason-number">01</div>
+        <p class="reason-text">
+          Your laugh is my favourite sound in the entire world — it's impossible not to smile when I hear it.
+        </p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-number">02</div>
+        <p class="reason-text">
+          You see the good in people. Your kindness radiates, and it makes everyone around you feel lighter.
+        </p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-number">03</div>
+        <p class="reason-text">
+          The way you listen — truly listen — makes me feel heard in ways I didn't know I needed.
+        </p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-number">04</div>
+        <p class="reason-text">
+          You challenge me to be better, to think deeper, to dream bigger — and you do it with so much love.
+        </p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-number">05</div>
+        <p class="reason-text">
+          Your strength inspires me. Even on your hardest days, you show up with grace and resilience.
+        </p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-number">06</div>
+        <p class="reason-text">
+          With you, I've found a love that feels like home — safe, warm, and endlessly beautiful.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+         M E M O R Y   T I M E L I N E
+═══════════════════════════════════════════════════════════ -->
+  <section class="timeline-section">
+    <div class="timeline-header reveal">
+      <p class="reasons-label">Our Story So Far</p>
+      <h2 class="reasons-title">Two Months of <span>Magic</span></h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <p class="timeline-date">December 2025</p>
+          <h3 class="timeline-title">The Day We Met</h3>
+          <p class="timeline-desc">
+            Two months ago, you walked into my life. I remember thinking, "There's something different about her."
+          </p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <p class="timeline-date">Our First Date</p>
+          <h3 class="timeline-title">When I Knew</h3>
+          <p class="timeline-desc">
+            The conversation flowed so naturally. Hours felt like minutes. I knew I wanted more of this.
+          </p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <p class="timeline-date">Getting to Know You</p>
+          <h3 class="timeline-title">Every Little Thing</h3>
+          <p class="timeline-desc">
+            Learning about you has been my favorite part. Every story, every quirk — I'm here for all of it.
+          </p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <p class="timeline-date">Right Now</p>
+          <h3 class="timeline-title">Excited for More</h3>
+          <p class="timeline-desc">
+            Two months in, and I'm already excited about what's next. Here's to many more moments together.
+          </p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+         F O O T E R
+═══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-heart">💕</div>
+    <p class="footer-message">Here's to Us</p>
+    <p class="footer-tagline">Happy Valentine's Day · Potia</p>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+         J A V A S C R I P T
+═══════════════════════════════════════════════════════════ -->
+  <script>
+    // ── Custom Cursor ──
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
+    });
+
+    (function animateRing() {
+      rx += (mx - rx) * 0.15;
+      ry += (my - ry) * 0.15;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    // ── Floating Hearts Canvas ──
+    const canvas = document.getElementById('hearts-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, hearts = [];
+
+    function resizeCanvas() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      hearts = Array.from({ length: 30 }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        size: 12 + Math.random() * 18,
+        speedY: 0.3 + Math.random() * 0.6,
+        speedX: (Math.random() - 0.5) * 0.4,
+        opacity: 0.1 + Math.random() * 0.15,
+        pulse: Math.random() * Math.PI * 2,
+      }));
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function drawHearts() {
+      ctx.clearRect(0, 0, W, H);
+      hearts.forEach(h => {
+        h.y -= h.speedY;
+        h.x += h.speedX;
+        h.pulse += 0.02;
+        const scale = 1 + Math.sin(h.pulse) * 0.1;
+
+        if (h.y + h.size < 0) h.y = H + h.size;
+        if (h.x < -h.size) h.x = W + h.size;
+        if (h.x > W + h.size) h.x = -h.size;
+
+        ctx.save();
+        ctx.globalAlpha = h.opacity;
+        ctx.fillStyle = '#E63946';
+        ctx.font = `${h.size * scale}px serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('❤', h.x, h.y);
+        ctx.restore();
+      });
+      requestAnimationFrame(drawHearts);
+    }
+    drawHearts();
+
+    // ── Click Hearts Effect ──
+    const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '💝', '💞', '💘'];
+    document.addEventListener('click', e => {
+      for (let i = 0; i < 6; i++) {
+        const h = document.createElement('div');
+        h.className = 'click-heart';
+        h.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        h.style.cssText = `
+        left: ${e.clientX + (Math.random() - 0.5) * 50}px;
+        top:  ${e.clientY + (Math.random() - 0.5) * 50}px;
+        --dur: ${1 + Math.random() * 0.8}s;
+        --rot: ${(Math.random() - 0.5) * 60}deg;
+      `;
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 1500);
+      }
+    });
+
+    // ── Scroll Reveal ──
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+
+</html>
